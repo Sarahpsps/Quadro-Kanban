@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu Quadro Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="stylekb.css"/>
+  <script src="scriptkb.js" defer></script>   
+</head>
+<body>
+
+  <div class="kb-inner">
+    <div class="kb-logo">
+      <div class="kb-logo-text">KAN</div>
+      <div class="kb-logo-text">BAN</div>
+      <button class="kb-plus-btn" id="open-modal" title="Nova tarefa">
+        <svg class="kb-flower" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="24" cy="12" rx="7" ry="11"/>
+          <ellipse cx="24" cy="36" rx="7" ry="11"/>
+          <ellipse cx="12" cy="24" rx="11" ry="7"/>
+          <ellipse cx="36" cy="24" rx="11" ry="7"/>
+          <circle cx="24" cy="24" r="5" fill="#f0ede4"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="kb-columns">
+      <div class="kb-col" data-col="todo">
+        <div class="kb-col-title">A Fazer</div>
+        <div class="col-drop-zone"></div>
+      </div>
+      <div class="kb-col" data-col="progress">
+        <div class="kb-col-title">Em Andamento</div>
+        <div class="col-drop-zone"></div>
+      </div>
+      <div class="kb-col" data-col="review">
+        <div class="kb-col-title">Revisão</div>
+        <div class="col-drop-zone"></div>
+      </div>
+      <div class="kb-col" data-col="done">
+        <div class="kb-col-title">Concluído</div>
+        <div class="col-drop-zone"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <label>Tarefa:</label>
+      <input type="text" id="inp-name" placeholder="O que precisa ser feito?" maxlength="60"/>
+
+      <label>Descrição:</label>
+      <textarea id="inp-desc" placeholder="Detalhes adicionais (opcional)..."></textarea>
+
+      <label>Mover para:</label>
+      <select id="inp-col">
+        <option value="todo">A Fazer</option>
+        <option value="progress">Em Andamento</option>
+        <option value="review">Revisão</option>
+        <option value="done">Concluído</option>
+      </select>
+
+      <label>Prioridade:</label>
+      <div class="modal-color-row">
+        <div class="modal-color-opt" onclick="selectColor('urgent')">
+          <div class="color-dot urgent-dot selected" id="dot-urgent"></div>
+          Urgente
+        </div>
+        <div class="modal-color-opt" onclick="selectColor('not-urgent')">
+          <div class="color-dot not-urgent-dot" id="dot-not"></div>
+          Normal
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+        <button class="btn-add" id="btn-add">Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
